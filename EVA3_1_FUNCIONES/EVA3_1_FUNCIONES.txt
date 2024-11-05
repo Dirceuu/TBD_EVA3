@@ -1,0 +1,147 @@
+MySQL Shell 8.0.38
+
+Copyright (c) 2016, 2024, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 23
+Server version: 8.0.39 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > \help
+The Shell Help is organized in categories and topics. To get help for a
+specific category or topic use: \? <pattern>
+
+The <pattern> argument should be the name of a category or a topic.
+
+The pattern is a filter to identify topics for which help is required, it can
+use the following wildcards:
+
+- ? matches any single character.
+- * matches any character sequence.
+
+The following are the main help categories:
+
+ - Shell Commands Provides details about the available built-in shell commands.
+ - SQL Syntax     Entry point to retrieve syntax help on SQL statements.
+
+The available topics include:
+
+- The available shell commands.
+- Any word that is part of an SQL statement.
+- Command Line - invoking built-in shell functions without entering interactive
+  mode.
+
+SHELL COMMANDS
+
+The shell commands allow executing specific operations including updating the
+shell configuration.
+
+The following shell commands are available:
+
+ - \                   Start multi-line input when in SQL mode.
+ - \connect    (\c)    Connects the shell to a MySQL server and assigns the
+                       global session.
+ - \disconnect         Disconnects the global session.
+ - \edit       (\e)    Launch a system editor to edit a command to be executed.
+ - \exit               Exits the MySQL Shell, same as \quit.
+ - \G                  Send command to mysql server, display result vertically.
+ - \g                  Send command to mysql server.
+ - \help       (\?,\h) Prints help information about a specific topic.
+ - \history            View and edit command line history.
+ - \js                 Switches to JavaScript processing mode.
+ - \nopager            Disables the current pager.
+ - \nowarnings (\w)    Don't show warnings after every statement.
+ - \option             Allows working with the available shell options.
+ - \pager      (\P)    Sets the current pager.
+ - \py                 Switches to Python processing mode.
+ - \quit       (\q)    Exits the MySQL Shell.
+ - \reconnect          Reconnects the global session.
+ - \rehash             Refresh the autocompletion cache.
+ - \show               Executes the given report with provided options and
+                       arguments.
+ - \source     (\.)    Loads and executes a script from a file.
+ - \sql                Executes SQL statement or switches to SQL processing
+                       mode when no statement is given.
+ - \status     (\s)    Print information about the current global session.
+ - \system     (\!)    Execute a system shell command.
+ - \use        (\u)    Sets the active schema.
+ - \warnings   (\W)    Show warnings after every statement.
+ - \watch              Executes the given report with provided options and
+                       arguments in a loop.
+
+EXAMPLES
+\? sql syntax
+      Displays the main SQL help categories.
+
+\? select
+      Displays information about the SELECT SQL statement.
+ MySQL  localhost:3306 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| automovil          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| tbd_e1             |
+| tbd_e2             |
+| world              |
++--------------------+
+9 rows in set (0.0106 sec)
+ MySQL  localhost:3306 ssl  SQL > use tbd_e2;
+Default schema set to `tbd_e2`.
+Fetching global names, object names from `tbd_e2` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  tbd_e2  SQL > select count(*) from countries;
++----------+
+| count(*) |
++----------+
+|       28 |
++----------+
+1 row in set (0.2394 sec)
+ MySQL  localhost:3306 ssl  tbd_e2  SQL > SELECT return_value();
++----------------+
+| return_value() |
++----------------+
+|              1 |
++----------------+
+1 row in set (0.1105 sec)
+ MySQL  localhost:3306 ssl  tbd_e2  SQL > SELECT show_message();
+ERROR: 1318 (42000): Incorrect number of arguments for FUNCTION tbd_e2.show_message; expected 1, got 0
+ MySQL  localhost:3306 ssl  tbd_e2  SQL > SELECT show_message("HOLA MUNDO");
++----------------------------+
+| show_message("HOLA MUNDO") |
++----------------------------+
+| TU MENSAJE: HOLA MUNDO     |
++----------------------------+
+1 row in set (0.0202 sec)
+ MySQL  localhost:3306 ssl  tbd_e2  SQL > select add_number(5, 21);
++-------------------+
+| add_number(5, 21) |
++-------------------+
+|                26 |
++-------------------+
+1 row in set (0.0033 sec)
+ MySQL  localhost:3306 ssl  tbd_e2  SQL >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
